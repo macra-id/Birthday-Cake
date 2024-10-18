@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function blowOutCandles() {
     let blownOut = 0;
+    
+   
 
     // Only check for blowing if there are candles and at least one is not blown out
     if (candles.length > 0 && candles.some((candle) => !candle.classList.contains("out"))) {
@@ -69,15 +71,22 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCandleCount();
       }
 
+
       // If all candles are blown out, trigger confetti after a small delay
       if (candles.every((candle) => candle.classList.contains("out"))) {
         setTimeout(function() {
           triggerConfetti();
           endlessConfetti(); // Start the endless confetti
+
         }, 200);
-        audio.play();
+        console.log(candles.every((candle) => candle.classList.contains("out")));
+        openVideoButton.click()
+        
       }
+
+      
     }
+   
   }
 
 
@@ -142,6 +151,19 @@ openVideoButton.addEventListener('click', function () {
 
   giftVideo.play();
  openVideoButton.style.display = 'none';
+ giftVideo.addEventListener('ended', function () {
+  giftVideo.pause(); // Pause the video
+  giftVideo.currentTime = 0; // Reset video time to the start
+  videoOverlay.style.display = 'none'; // Hide overlay
+  openVideoButton.style.display = 'block'; // Show the open video button
+  cakeElement.innerHTML = `
+    <div class="cake-content" style="display: flex; justify-content: center; align-items: center;">
+      <img src="logo_macra.png" alt="Cake" style="max-width: 100%; height: auto;">
+    </div>
+  `;
+
+ });
+
 });
 
 
