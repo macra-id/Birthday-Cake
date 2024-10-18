@@ -144,7 +144,6 @@ openVideoButton.addEventListener('click', function () {
   footer.innerHTML = `
     <div class="new-cake-content">
       <h1>Surprise! 🎉</h1>
-      <p>The cake has been replaced with this message. Enjoy the video!</p>
     </div>
   `;
 
