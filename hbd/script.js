@@ -118,3 +118,36 @@ function endlessConfetti() {
     });
   }, 1000);
 }
+
+const openVideoButton = document.getElementById('openVideo');
+const videoOverlay = document.getElementById('videoOverlay');
+const closeOverlayButton = document.getElementById('closeOverlay');
+const giftVideo = document.getElementById('giftVideo');
+const cakeElement = document.querySelector('.cake');
+const footer = document.querySelector('.footer');
+
+
+openVideoButton.addEventListener('click', function () {
+ 
+  videoOverlay.style.display = 'flex';
+  
+ 
+  footer.innerHTML = `
+    <div class="new-cake-content">
+      <h1>Surprise! 🎉</h1>
+      <p>The cake has been replaced with this message. Enjoy the video!</p>
+    </div>
+  `;
+
+
+  giftVideo.play();
+ openVideoButton.style.display = 'none';
+});
+
+
+// closeOverlayButton.addEventListener('click', function () {
+//   giftVideo.pause(); // Pause the video
+//   giftVideo.currentTime = 0; // Reset video time to the start
+//   videoOverlay.style.display = 'none'; // Hide overlay
+//   openVideoButton.style.display = 'block'; // Show the open video button
+// });
